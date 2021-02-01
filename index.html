@@ -1,0 +1,193 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="img/amieduXpng.ICO" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Amiedu Forum</title>
+  </head>
+  <body>
+    <div id="yla">
+      <a href="index.html">Home</a>
+      <a href="pages/calender.html">Calendar</a>
+      <a href="pages/feedback.html">Feedback</a>
+      <a
+        href="https://amiedu-plus.solenovo.fi/student/app/skillacquirementplan/"
+        >StudentaPluS</a
+      >
+      <a href="https://www.amiforum.fi/course/view.php?id=5455">Web2</a>
+      <a href="login.html">Logout</a>
+    </div>
+
+    <header id="hdr" class="grid">
+      <div class="bigImage"></div>
+      <h1>Amiedu Forum</h1>
+      <h3>Minun kurssini</h3>
+        
+      
+      <a href="https://www.amiforum.fi/course/view.php?id=5455" class="btn">
+        Log in</a
+      >
+    </header>
+
+    <main class="main">
+      <section>
+        <div class="studenta">
+          <h2>
+            <a
+              href="https://amiedu-plus.solenovo.fi/student/app/skillacquirementplan/"
+              id="hdr"
+            >
+              StudentaPluS</a
+            >
+          </h2>
+          <p>
+            Suunnitelma osaamisen hankkimiseksi <br>
+            Tieto- ja viestintätekniikan perustutkinto, Datanomi (PT) (03.09.2018 - 30.09.2020)
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="flexCont">
+      <div class="first">
+        <div class="bg"></div>
+        <h1><a href="pages/calender.html" id="hdr">Calendar</a></h1>
+        <p>
+          Lukujärjestys
+          <center>
+            <script language="javascript" type="text/javascript">
+            var day_of_week = new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+            var month_of_year = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+            
+            //  DECLARE AND INITIALIZE VARIABLES
+            var Calendar = new Date();
+            
+            var year = Calendar.getFullYear();     // Returns year
+            var month = Calendar.getMonth();    // Returns month (0-11)
+            var today = Calendar.getDate();    // Returns day (1-31)
+            var weekday = Calendar.getDay();    // Returns day (1-31)
+            
+            var DAYS_OF_WEEK = 7;    // "constant" for number of days in a week
+            var DAYS_OF_MONTH = 31;    // "constant" for number of days in a month
+            var cal;    // Used for printing
+            
+            Calendar.setDate(1);    // Start the calendar day at '1'
+            Calendar.setMonth(month);    // Start the calendar month at now
+            
+            
+            /* VARIABLES FOR FORMATTING
+            NOTE: You can format the 'BORDER', 'BGCOLOR', 'CELLPADDING', 'BORDERCOLOR'
+                  tags to customize your caledanr's look. */
+            
+            var TR_start = '<TR>';
+            var TR_end = '</TR>';
+            var highlight_start = '<TD WIDTH="30"><TABLE CELLSPACING=0 BORDER=1 BGCOLOR=DEDEFF BORDERCOLOR=CCCCCC><TR><TD WIDTH=20><B><CENTER>';
+            var highlight_end   = '</CENTER></TD></TR></TABLE></B>';
+            var TD_start = '<TD WIDTH="30"><CENTER>';
+            var TD_end = '</CENTER></TD>';
+            
+            /* BEGIN CODE FOR CALENDAR
+            NOTE: You can format the 'BORDER', 'BGCOLOR', 'CELLPADDING', 'BORDERCOLOR'
+            tags to customize your calendar's look.*/
+            
+            cal =  '<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=0 BORDERCOLOR=BBBBBB><TR><TD>';
+            cal += '<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2>' + TR_start;
+            cal += '<TD COLSPAN="' + DAYS_OF_WEEK + '" BGCOLOR="#EFEFEF"><CENTER><B>';
+            cal += month_of_year[month]  + '   ' + year + '</B>' + TD_end + TR_end;
+            cal += TR_start;
+            
+            //   DO NOT EDIT BELOW THIS POINT  //
+            
+            // LOOPS FOR EACH DAY OF WEEK
+            for(index=0; index < DAYS_OF_WEEK; index++)
+            {
+            
+            // BOLD TODAY'S DAY OF WEEK
+            if(weekday == index)
+            cal += TD_start + '<B>' + day_of_week[index] + '</B>' + TD_end;
+            
+            // PRINTS DAY
+            else
+            cal += TD_start + day_of_week[index] + TD_end;
+            }
+            
+            cal += TD_end + TR_end;
+            cal += TR_start;
+            
+            // FILL IN BLANK GAPS UNTIL TODAY'S DAY
+            for(index=0; index < Calendar.getDay(); index++)
+            cal += TD_start + '  ' + TD_end;
+            
+            // LOOPS FOR EACH DAY IN CALENDAR
+            for(index=0; index < DAYS_OF_MONTH; index++)
+            {
+            if( Calendar.getDate() > index )
+            {
+              // RETURNS THE NEXT DAY TO PRINT
+              week_day =Calendar.getDay();
+            
+              // START NEW ROW FOR FIRST DAY OF WEEK
+              if(week_day == 0)
+              cal += TR_start;
+            
+              if(week_day != DAYS_OF_WEEK)
+              {
+            
+              // SET VARIABLE INSIDE LOOP FOR INCREMENTING PURPOSES
+              var day  = Calendar.getDate();
+            
+              // HIGHLIGHT TODAY'S DATE
+              if( today==Calendar.getDate() )
+              cal += highlight_start + day + highlight_end + TD_end;
+            
+              // PRINTS DAY
+              else
+              cal += TD_start + day + TD_end;
+              }
+            
+              // END ROW FOR LAST DAY OF WEEK
+              if(week_day == DAYS_OF_WEEK)
+              cal += TR_end;
+              }
+            
+              // INCREMENTS UNTIL END OF THE MONTH
+              Calendar.setDate(Calendar.getDate()+1);
+            
+            }// end for loop
+            
+            cal += '</TD></TR></TABLE></TABLE>';
+            
+            //  PRINT CALENDAR
+            document.write(cal);
+            
+            //  End -->
+            </script>
+            </center>
+            <br/><div style="clear:both"></div><div><a target="_blank" href="http://www.htmlbestcodes.com/"><span style="font-size: 8pt; text-decoration: none"></span></a></div>
+        </p>
+      </div>
+
+      <div class="second">
+        <div class="second-a">
+          <h1><a href="pages/feedback.html" id="hdr"> Feedback</a></h1>
+          Palautelomake kursseillemme
+        </div>
+        <div class="second-b">
+          B orem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit.
+        </div>
+      </div>
+    </div>
+    <div id="ala">
+      <a href="#">About <br> <small>Nesciunt accusantium ducimus voluptatem voluptatem</small> 
+      </a>
+      
+
+      <a href="https://www.taitotalo.fi/contact">Contact Us</a>
+
+      
+    </div>
+  </body>
+</html>
